@@ -50,6 +50,11 @@ const displayNews = news =>{
                                     <div>${news.rating.badge}</div>
                                     <div>${news.rating.number}</div>
                                 </div>
+                                <div>
+                                <button type="button" class="btn btn-primary"       data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Details
+                                </button>
+                                </div>
                             </div
                         </div>
                     </div>
