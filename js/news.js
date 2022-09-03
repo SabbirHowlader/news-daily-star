@@ -1,21 +1,22 @@
-const loadNavbar =  async() =>{
+const loadNews =  async() =>{
     const url = `https://openapi.programming-hero.com/api/news/categories`;
     const res = await fetch(url);
     const data = await res.json();
-    newsCategory (data.data);
+    newsCategory(data.data.news_category);
 }
 const newsCategory = categories => {
     const categoryContainer = document.getElementById('all-categories');
-    categories.forEach(categories =>{
+    categories.forEach(category =>{
         const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add('col');
+        categoryDiv.classList.add('ul');
         categoryDiv.innerHTML = `
-          <div class="nav">
-          <h5 class="category-name">${categories.news_category}</h5>
-          </div>
+                <ul class="list ">
+                    <li class="list-group-item">${category.category_name}</li>  
+                </ul>
+          
         `;
         categoryContainer.appendChild(categoryDiv);
     })
 }
 
-loadNavbar();
+loadNews();
