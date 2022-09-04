@@ -47,7 +47,7 @@ const displayNews = news =>{
                                     <p class="p-date">${news.author.published_date}</p>
                                 </div>
                                 <div>
-                                      <p>${news.total_view}</p>
+                                      <p class = "mt-3">${news.total_view}</p>
                                 </div>
                                 <div>
                                     <div>${news.rating.badge}</div>
