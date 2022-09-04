@@ -26,6 +26,9 @@ const newsDetails = async() =>{
 }
 const displayNews = news =>{
     const NewsContainer = document.getElementById('news-container');
+
+    // only 4 news in display 
+        news = news.slice(0,4);
     news.forEach(news => {
         const newsDiv = document.createElement('div');
         newsDiv.classList.add('col');
@@ -51,7 +54,7 @@ const displayNews = news =>{
                                     <div>${news.rating.number}</div>
                                 </div>
                                 <div>
-                                <button type="button" class="btn btn-primary"       data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsModal">
                                     Details
                                 </button>
                                 </div>
@@ -62,6 +65,15 @@ const displayNews = news =>{
         `;
         NewsContainer.appendChild(newsDiv);
     })
+}
+
+const displayNewsDetails = news => {
+    console.log(news);
+    const modelTitle = document.getElementById('newsModalLabel');
+    modelTitle.innerText = news.name;
+    const newsDetails = document.getElementById('news-container');
+    newsDetails.innerHTML = `
+    <p>title: ${news.title}`
 }
  
 newsDetails();
